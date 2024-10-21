@@ -9,18 +9,18 @@ int main() {
     SetConsoleCP(1251);
 
     int M, N;
-    std::cout << "Ââåäèòå êîëè÷åñòâî êîîðäèíàò: ";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²: ";
     std::cin >> M;
-    std::cout << "Ââåäèòå êîëè÷åñòâî ôóíêöèé: ";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã«Ã¨Ã·Ã¥Ã±Ã²Ã¢Ã® Ã´Ã³Ã­ÃªÃ¶Ã¨Ã©: ";
     std::cin >> N;
 
     double* x_values = new double[M];
     double* y_values = new double[M];
-    std::cout << "Ââåäèòå êîîðäèíàòû x:\n";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã» x:\n";
     for (int i = 0; i < M; ++i) {
         std::cin >> x_values[i];
     }
-    std::cout << "Ââåäèòå êîîðäèíàòû y:\n";
+    std::cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ ÃªÃ®Ã®Ã°Ã¤Ã¨Ã­Ã Ã²Ã» y:\n";
     for (int i = 0; i < M; ++i) {
         std::cin >> y_values[i];
     }
@@ -30,19 +30,19 @@ int main() {
     matrixA.fill_array_A(x_values, M);
     matrixB.fill_array_B(x_values, y_values, N, M);
 
-    std::cout << "Ìàòðèöà À: \n";
+    std::cout << "ÃŒÃ Ã²Ã°Ã¨Ã¶Ã  Ã€: \n";
     matrixA.print();
 
-    std::cout << "Ìàòðèöà B: \n";
+    std::cout << "ÃŒÃ Ã²Ã°Ã¨Ã¶Ã  B: \n";
     matrixB.print();
 
     Matrix adj_A = matrixA.adjugate();
     Matrix A_obr = adj_A;
-    std::cout << "Îáðàòíàÿ ìàòðèöà À: \n";
+    std::cout << "ÃŽÃ¡Ã°Ã Ã²Ã­Ã Ã¿ Ã¬Ã Ã²Ã°Ã¨Ã¶Ã  Ã€: \n";
     A_obr.print();
 
     Matrix result = A_obr * matrixB;
-    std::cout << "Ìàòðèöà êîýôôèöèåíòîâ: \n";
+    std::cout << "ÃŒÃ Ã²Ã°Ã¨Ã¶Ã  ÃªÃ®Ã½Ã´Ã´Ã¨Ã¶Ã¨Ã¥Ã­Ã²Ã®Ã¢: \n";
     result.print();
 
     print_values(result, y_values, x_values, M);
