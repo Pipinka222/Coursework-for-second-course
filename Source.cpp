@@ -11,7 +11,7 @@ double Math::f(int i, double xi) {
     case 3:
         exit(228);
     }
-    return 0; // на случай если что-то пойдет не так
+    return 0; // Г­Г  Г±Г«ГіГ·Г Г© ГҐГ±Г«ГЁ Г·ГІГ®-ГІГ® ГЇГ®Г©Г¤ГҐГІ Г­ГҐ ГІГ ГЄ
 }
 
 Matrix::Matrix(int row, int col) : rows(row), cols(col) {
@@ -120,14 +120,14 @@ Matrix Matrix::operator*(const Matrix& other) const {
 }
 
 void print_values(const Matrix& result, double y_values[], double x_values[], int M) {
-    std::cout << "Аппроксимированные значения:\n";
+    std::cout << "ГЂГЇГЇГ°Г®ГЄГ±ГЁГ¬ГЁГ°Г®ГўГ Г­Г­Г»ГҐ Г§Г­Г Г·ГҐГ­ГЁГї:\n";
     double* dev = new double[M];
     double maxDev = -10000;
     double summ = 0.0;
     int index_max = 0;
     for (int i = 0; i < M; ++i) {
         double approximated_value = result.get_value(0, 0) * sin(x_values[i]) + result.get_value(1, 0) * cos(x_values[i]) + result.get_value(2, 0);
-        std::cout << "x = " << x_values[i] << ", y = " << y_values[i] << ", y` = " << approximated_value << ", отклонение =  " << abs(y_values[i] - approximated_value) << "\n";
+        std::cout << "x = " << x_values[i] << ", y = " << y_values[i] << ", y` = " << approximated_value << ", Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГҐ =  " << abs(y_values[i] - approximated_value) << "\n";
         dev[i] = abs(y_values[i] - approximated_value);
         summ = summ + (dev[i] * dev[i]);
     }
@@ -138,8 +138,8 @@ void print_values(const Matrix& result, double y_values[], double x_values[], in
             index_max = j;
         }
     }
-    std::cout << "Наибольшее отклонение равно  " << maxDev << " и наблюдается при х равном  " << x_values[index_max] << "\n\n";
-    std::cout << "Критерий аппроксимации равен " << summ << "\n\n";
+    std::cout << "ГЌГ ГЁГЎГ®Г«ГјГёГҐГҐ Г®ГІГЄГ«Г®Г­ГҐГ­ГЁГҐ Г°Г ГўГ­Г®  " << maxDev << " ГЁ Г­Г ГЎГ«ГѕГ¤Г ГҐГІГ±Гї ГЇГ°ГЁ Гµ Г°Г ГўГ­Г®Г¬  " << x_values[index_max] << "\n\n";
+    std::cout << "ГЉГ°ГЁГІГҐГ°ГЁГ© Г ГЇГЇГ°Г®ГЄГ±ГЁГ¬Г Г¶ГЁГЁ Г°Г ГўГҐГ­ " << summ << "\n\n";
     delete[] dev;
     dev = nullptr;
 }
