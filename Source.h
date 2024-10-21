@@ -18,13 +18,13 @@ public:
     Matrix(int row, int col);
     ~Matrix();
 
-    // Çàïîëíåíèå è âûâîä
+    // Заполнение и вывод
     void fill_array_A(double x_values[], int M);
     void fill_array_B(double x_values[], double y_values[], int N, int M);
     void print() const;
     double get_value(int row, int col) const;
 
-    // Äåéñòâèÿ íàä ìàòðèöàìè
+    // Действия над матрицами
     double det() const;
     double minor_2x2(int row, int col) const;
     Matrix adjugate() const;
