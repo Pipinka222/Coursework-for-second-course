@@ -8,27 +8,8 @@ double Math::f(int i, double xi) { //если подгонять под себя
         return cos(xi);
     case 2:
         return 1;
-    case 3:
-        exit(228);
     }
-}
-
-Matrix::Matrix(int row, int col) : rows(row), cols(col) {
-    data = new double* [rows];
-    for (int i = 0; i < rows; ++i) {
-        data[i] = new double[cols];
-        for (int j = 0; j < cols; ++j) {
-            data[i][j] = 0.0;
-        }
-    }
-}
-
-Matrix::~Matrix() {
-    for (int i = 0; i < rows; ++i) {
-        delete[] data[i];
-    }
-    delete[] data;
-    data = nullptr;
+    return 0;
 }
 
 void Matrix::fill_array_A(double x_values[], int M) {
@@ -97,9 +78,9 @@ Matrix Matrix::adjugate() const {
     return adj;
 }
 
-void Matrix::transpos() {
+void Matrix::transpos() { //shitcoding
     for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
+        for (int j = i; j < cols; j++) {
             std::swap(data[i][j], data[j][i]);
         }
     }
