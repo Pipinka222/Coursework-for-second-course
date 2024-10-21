@@ -18,13 +18,13 @@ public:
     Matrix(int row, int col);
     ~Matrix();
 
-    // Заполнение и вывод
+    // Г‡Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ ГЁ ГўГ»ГўГ®Г¤
     void fill_array_A(double x_values[], int M);
     void fill_array_B(double x_values[], double y_values[], int N, int M);
     void print() const;
     double get_value(int row, int col) const;
 
-    // Действия над матрицами
+    // Г„ГҐГ©Г±ГІГўГЁГї Г­Г Г¤ Г¬Г ГІГ°ГЁГ¶Г Г¬ГЁ
     double det() const;
     double minor_2x2(int row, int col) const;
     Matrix adjugate() const;
@@ -34,5 +34,5 @@ public:
 
 void print_values(const Matrix& result, double y_values[], double x_values[], int M);
 
-#endif // MATRIX_H
+#endif 
 
