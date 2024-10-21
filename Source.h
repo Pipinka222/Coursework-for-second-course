@@ -15,8 +15,23 @@ private:
     int rows, cols;
 
 public:
-    Matrix(int row, int col);
-    ~Matrix();
+    Matrix(int row, int col) : rows(row), cols(col) {
+        data = new double* [rows];
+        for (int i = 0; i < rows; ++i) {
+            data[i] = new double[cols];
+            for (int j = 0; j < cols; ++j) {
+                data[i][j] = 0.0;
+            }
+        }
+    }
+
+    ~Matrix() {
+        for (int i = 0; i < rows; ++i) {
+            delete[] data[i];
+        }
+        delete[] data;
+        data = nullptr;
+    }
 
     // Заполнение и вывод
     void fill_array_A(double x_values[], int M);
