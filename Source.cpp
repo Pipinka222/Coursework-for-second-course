@@ -1,6 +1,6 @@
 #include "Source.h"
 
-double Math::f(int i, double xi) {
+double Math::f(int i, double xi) { //если подгонять под себя, то тут
     switch (i) {
     case 0:
         return sin(xi);
@@ -11,7 +11,7 @@ double Math::f(int i, double xi) {
     case 3:
         exit(228);
     }
-    return 0; // íà ñëó÷àé åñëè ÷òî-òî ïîéäåò íå òàê
+    return 0; // на случай если что-то пойдет не так
 }
 
 Matrix::Matrix(int row, int col) : rows(row), cols(col) {
@@ -120,14 +120,14 @@ Matrix Matrix::operator*(const Matrix& other) const {
 }
 
 void print_values(const Matrix& result, double y_values[], double x_values[], int M) {
-    std::cout << "Àïïðîêñèìèðîâàííûå çíà÷åíèÿ:\n";
+    std::cout << "Аппроксимированные значения:\n";
     double* dev = new double[M];
     double maxDev = -10000;
     double summ = 0.0;
     int index_max = 0;
     for (int i = 0; i < M; ++i) {
-        double approximated_value = result.get_value(0, 0) * sin(x_values[i]) + result.get_value(1, 0) * cos(x_values[i]) + result.get_value(2, 0);
-        std::cout << "x = " << x_values[i] << ", y = " << y_values[i] << ", y` = " << approximated_value << ", îòêëîíåíèå =  " << abs(y_values[i] - approximated_value) << "\n";
+        double approximated_value = result.get_value(0, 0) * sin(x_values[i]) + result.get_value(1, 0) * cos(x_values[i]) + result.get_value(2, 0); //и тут
+        std::cout << "x = " << x_values[i] << ", y = " << y_values[i] << ", y` = " << approximated_value << ", отклонение =  " << abs(y_values[i] - approximated_value) << "\n";
         dev[i] = abs(y_values[i] - approximated_value);
         summ = summ + (dev[i] * dev[i]);
     }
@@ -138,8 +138,8 @@ void print_values(const Matrix& result, double y_values[], double x_values[], in
             index_max = j;
         }
     }
-    std::cout << "Íàèáîëüøåå îòêëîíåíèå ðàâíî  " << maxDev << " è íàáëþäàåòñÿ ïðè õ ðàâíîì  " << x_values[index_max] << "\n\n";
-    std::cout << "Êðèòåðèé àïïðîêñèìàöèè ðàâåí " << summ << "\n\n";
+    std::cout << "Наибольшее отклонение равно  " << maxDev << " и наблюдается при х равном  " << x_values[index_max] << "\n\n";
+    std::cout << "Критерий аппроксимации равен " << summ << "\n\n";
     delete[] dev;
     dev = nullptr;
 }
