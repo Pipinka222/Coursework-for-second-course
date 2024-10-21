@@ -11,7 +11,6 @@ double Math::f(int i, double xi) { //если подгонять под себя
     case 3:
         exit(228);
     }
-    return 0; // на случай если что-то пойдет не так
 }
 
 Matrix::Matrix(int row, int col) : rows(row), cols(col) {
