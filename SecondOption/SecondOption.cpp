@@ -10,16 +10,16 @@ int main() {
     std::cout << std::fixed;
 
     int M, N;
-    std::cout << "Ââåäèòå êîëè÷åñòâî êîîðäèíàò: ";
+    std::cout << "Введите количество координат: ";
     std::cin >> M;
-    std::cout << "Ââåäèòå êîëè÷åñòâî ôóíêöèé: ";
+    std::cout << "Введите количество функций: ";
     std::cin >> N;
 
     double* x_values = new double[M];
     double* y_values = new double[M];
-    std::cout << "Ââåäèòå êîîðäèíàòû x:\n";
+    std::cout << "Введите координаты x:\n";
     for (int i = 0; i < M; ++i) std::cin >> x_values[i];
-    std::cout << "Ââåäèòå êîîðäèíàòû y:\n";
+    std::cout << "Введите координаты y:\n";
     for (int i = 0; i < M; ++i) std::cin >> y_values[i];
 
     Preparation prep(N, M);
