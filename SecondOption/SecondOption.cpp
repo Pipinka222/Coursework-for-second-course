@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 #include <Windows.h>
 #include "Source_SecondOption.h"
 
@@ -18,9 +17,13 @@ int main() {
     double* x_values = new double[M];
     double* y_values = new double[M];
     std::cout << "Введите координаты x:\n";
-    for (int i = 0; i < M; ++i) std::cin >> x_values[i];
+    for (int i = 0; i < M; ++i) {
+        std::cin >> x_values[i];
+    }
     std::cout << "Введите координаты y:\n";
-    for (int i = 0; i < M; ++i) std::cin >> y_values[i];
+    for (int i = 0; i < M; ++i) {
+        std::cin >> y_values[i];
+    }
 
     Preparation prep(N, M);
     prep.fill_matrix_A(x_values);
@@ -33,9 +36,7 @@ int main() {
     print_result(x_values, y_values, M, solver.get_result());
 
     delete[] x_values;
-    x_values = nullptr;
     delete[] y_values;
-    y_values = nullptr;
 
     return 0;
 }
